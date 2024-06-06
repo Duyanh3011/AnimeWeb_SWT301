@@ -1,21 +1,18 @@
 package dal;
 
-import java.util.List;
-
-import model.Genre;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+import model.Genre;
 
 public class GenreDao extends DBContext {
 
     public List<Genre> getAll() {
         List<Genre> list = new ArrayList<>();
         String sql = "select * from [Genre]";
-        try (PreparedStatement st = connection.prepareStatement(sql); 
-                ResultSet rs = st.executeQuery()) 
-        {
+        try (PreparedStatement st = connection.prepareStatement(sql); ResultSet rs = st.executeQuery()) {
             while (rs.next()) {
                 Genre ad = new Genre(rs.getInt("id"), rs.getString("name"));
                 list.add(ad);
@@ -28,36 +25,34 @@ public class GenreDao extends DBContext {
 
     public Genre getGenreByID(int id) {
         String sql = "select * from Genre where id= ?";
-        //chay lenhj truy van
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
+        try (PreparedStatement st = connection.prepareStatement(sql)) {  // Use try-with-resources
             st.setInt(1, id);
-            ResultSet rs = st.executeQuery();
-            if (rs.next()) {
-                Genre ad = new Genre(rs.getInt("id"), rs.getString("name"));
-                return ad;
+            try (ResultSet rs = st.executeQuery()) {  // Use try-with-resources
+                if (rs.next()) {
+                    Genre ad = new Genre(rs.getInt("id"), rs.getString("name"));
+                    return ad;
+                }
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
-
         return null;
     }
+
 //	public void insert(Genre s){
 //        String sql = "INSERT INTO [User](id, password, email, fullname, admin)\n" + "VALUES (?, ?, ?, N'"+s.getFullname()+"', '0');";
-//        
+//
 //        try {
 //            PreparedStatement st = connection.prepareStatement(sql);
 //            st.setString(1, s.getId());
 //            st.setString(2, s.getPassword());
 //            st.setString(3, s.getEmail());
-//            
+//
 //            st.executeUpdate();
-//            
+//
 //        } catch (Exception e) {
 //        }
 //    }
-
     public int mostGenre() {
         String sql = "SELECT top 1 g.id, g.name, COUNT(v.id) AS num_videos\n"
                 + "	FROM Genre g\n"

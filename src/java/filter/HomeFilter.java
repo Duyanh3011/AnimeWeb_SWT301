@@ -188,8 +188,8 @@ public class HomeFilter implements Filter {
 
         if (stackTrace != null && !stackTrace.equals("")) {
             try {
-                response.setContentType("text/html");
-                try (PrintStream ps = new PrintStream(response.getOutputStream()); PrintWriter pw = new PrintWriter(ps)) {
+                response.setContentType("text/html; charset=UTF-8");
+                try (PrintStream ps = new PrintStream(response.getOutputStream(), true, "UTF-8"); PrintWriter pw = new PrintWriter(ps)) {
                     pw.print("<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n"); //NOI18N
 
                     // PENDING! Localize this for next official release
@@ -197,17 +197,22 @@ public class HomeFilter implements Filter {
                     pw.print(stackTrace);
                     pw.print("</pre></body>\n</html>"); //NOI18N
                 }
-                response.getOutputStream().close();
             } catch (Exception ex) {
+                // Handle the exception
             }
         } else {
             try {
-                PrintStream ps = new PrintStream(response.getOutputStream());
-                t.printStackTrace(ps);
-                ps.close();
-                response.getOutputStream().close();
+                try (PrintStream ps = new PrintStream(response.getOutputStream(), true, "UTF-8")) {
+                    t.printStackTrace(ps);
+                }
             } catch (Exception ex) {
+                // Handle the exception
             }
+        }
+        try {
+            response.getOutputStream().close();
+        } catch (Exception e) {
+            // Handle the exception
         }
     }
 
