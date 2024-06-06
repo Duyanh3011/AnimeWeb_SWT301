@@ -1,7 +1,7 @@
 package model;
 
+import java.util.Collections;
 import java.util.List;
-import java.lang.String;
 
 public class Video {
 
@@ -14,15 +14,14 @@ public class Video {
     private int year;
     private int genreId;
     private int studioId;
-    
 
 //	private List<Share> shares;
     private List<Favorites> favorites;
-//	
-//	
+//
+//
 
     public List<Favorites> getFavorites() {
-        return favorites;
+        return Collections.unmodifiableList(favorites);
     }
 
     public void setFavorites(List<Favorites> favorites) {
@@ -48,10 +47,6 @@ public class Video {
         this.genreId = genreId;
         this.studioId = studioId;
     }
-
-
-
-
 
     public Video() {
 
@@ -129,5 +124,4 @@ public class Video {
         this.studioId = studioId;
     }
 
- 
 }
