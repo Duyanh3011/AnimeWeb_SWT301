@@ -1,8 +1,7 @@
 package model;
+import java.io.Serializable;
 
-import java.util.List;
-
-public class Users {
+public class Users implements Serializable {
 
     private String id;
     private String password;
