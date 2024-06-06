@@ -211,7 +211,7 @@ public class HomeFilter implements Filter {
         }
         try {
             response.getOutputStream().close();
-        } catch (Exception e) {
+        } catch (IOException e) {
             // Handle the exception
         }
     }
