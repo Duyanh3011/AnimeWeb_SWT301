@@ -8,15 +8,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class GenreDao extends DBContext{
-	
-	public List<Genre> getAll() {
+public class GenreDao extends DBContext {
+
+    public List<Genre> getAll() {
         List<Genre> list = new ArrayList<>();
         String sql = "select * from [Genre]";
-        //chay lenhj truy van
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            ResultSet rs = st.executeQuery();
+        try (PreparedStatement st = connection.prepareStatement(sql); 
+                ResultSet rs = st.executeQuery()) 
+        {
             while (rs.next()) {
                 Genre ad = new Genre(rs.getInt("id"), rs.getString("name"));
                 list.add(ad);
@@ -24,12 +23,10 @@ public class GenreDao extends DBContext{
         } catch (SQLException e) {
             System.out.println(e);
         }
-
         return list;
     }
-	
-	
-        public Genre getGenreByID(int id) {
+
+    public Genre getGenreByID(int id) {
         String sql = "select * from Genre where id= ?";
         //chay lenhj truy van
         try {
@@ -60,13 +57,14 @@ public class GenreDao extends DBContext{
 //        } catch (Exception e) {
 //        }
 //    }
-        public int mostGenre() {
+
+    public int mostGenre() {
         String sql = "SELECT top 1 g.id, g.name, COUNT(v.id) AS num_videos\n"
-                    + "	FROM Genre g\n"
-                    + "	LEFT JOIN Video v ON g.id = v.GenreId\n"
-                    + "	GROUP BY g.id, g.name\n"
-                    + "	ORDER BY num_videos DESC";
-            //chay lenhj truy van
+                + "	FROM Genre g\n"
+                + "	LEFT JOIN Video v ON g.id = v.GenreId\n"
+                + "	GROUP BY g.id, g.name\n"
+                + "	ORDER BY num_videos DESC";
+        //chay lenhj truy van
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -79,6 +77,7 @@ public class GenreDao extends DBContext{
 
         return -1;
     }
+
     public String mostGenreName() {
         String sql = "SELECT top 1 g.id, g.name, COUNT(v.id) AS num_videos\n"
                 + "	FROM Genre g\n"
@@ -99,14 +98,13 @@ public class GenreDao extends DBContext{
         return null;
     }
 
-        
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         GenreDao sd = new GenreDao();
-        List<Genre> li = sd. getAll();
+        List<Genre> li = sd.getAll();
         System.out.println(li.get(0).getName());
-        
+
         Genre ge = sd.getGenreByID(1);
-            System.out.println(ge.getName());
+        System.out.println(ge.getName());
 
     }
 }

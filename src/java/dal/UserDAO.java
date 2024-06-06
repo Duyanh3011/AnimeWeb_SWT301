@@ -24,7 +24,10 @@ public class UserDAO extends DBContext {
                 } else {
                     adm = false;
                 }
-                Users ad = new Users(rs.getString("id"), rs.getString("password"), rs.getString("email"), rs.getString("fullname"), adm);
+                Users ad = new Users(rs.getString("id"), 
+                        rs.getString("password"), 
+                        rs.getString("email"), 
+                        rs.getString("fullname"), adm);
                 list.add(ad);
             }
         } catch (SQLException e) {
