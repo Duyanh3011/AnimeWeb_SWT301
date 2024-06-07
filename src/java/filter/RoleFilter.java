@@ -230,6 +230,8 @@ public class RoleFilter implements Filter {
             pw.close();
             sw.close();
             stackTrace = sw.getBuffer().toString();
+        }catch (RuntimeException e) {
+            throw e;
         } catch (Exception ex) {
         }
         return stackTrace;

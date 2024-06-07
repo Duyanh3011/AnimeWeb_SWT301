@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class VideoDAO extends DBContext {
-    static String check;
 //Find list vide 
     public List<Video> findPage(int n) {
         List<Video> list = new ArrayList<>();
@@ -130,7 +129,7 @@ public class VideoDAO extends DBContext {
         }
         return list;
     }
-
+    
     public List<Video> categoriesVideo(String gid, String sid, String order) {
         List<Video> list = new ArrayList<>();
         String sql = "";
@@ -161,7 +160,6 @@ public class VideoDAO extends DBContext {
         else if(order.equals("Views")){
             sql2 = "ORDER BY [views] DESC;";
         }
-        check = sql + sql2;
         try {
             PreparedStatement st = connection.prepareStatement(sql + sql2);
             ResultSet rs = st.executeQuery();
@@ -218,7 +216,6 @@ public class VideoDAO extends DBContext {
 
 //Find Video
     public Video findByID(String id) {
-        List<Video> list = new ArrayList<>();
         String sql = "select * from Video\n"
                 + "	where id = ?";
 
@@ -408,7 +405,6 @@ public class VideoDAO extends DBContext {
         Video vid = new Video("10","Shironeko Project ZERO CHRONICLE", "https://cdn.myanimelist.net/images/anime/1072/111360l.jpg", 800, "The world is divided into two kingdoms: the Kingdom of White, which floats in the heavens and is ruled by their queen Iris, and the Kingdom of Black, which stands upon desolate land below and houses the King of Darkness as its ruler. As of late, forces of evil have amassed great power, posing a threat to the entire world. Being the main representative of the Light, it is Iris duty to maintain the balance of the world and fight off the darkness in her kingdom.", "https://www.youtube.com/embed/G4_ACGXNRBU?si=Ts1cKRh_Kju8clnU", 2020, 3,1);
         video.update(vid);
         System.out.println(vid.getViews());
-        System.out.println(check);
 
 //        System.out.println(video.findByID("1").getTitle());
     

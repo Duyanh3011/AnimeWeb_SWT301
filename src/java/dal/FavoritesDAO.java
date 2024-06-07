@@ -111,6 +111,8 @@ public class FavoritesDAO extends DBContext {
         st.setString(2, s.getUserId());
         st.setInt(1, Integer.parseInt(s.getVideoId()));
         st.executeUpdate();
+    } catch (RuntimeException e) {
+        throw e;
     } catch (Exception e) {
         System.out.println(e);
     }
