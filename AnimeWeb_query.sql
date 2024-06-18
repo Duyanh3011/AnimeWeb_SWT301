@@ -1,6 +1,9 @@
--- Create database
---Drop DATABASE AnimeWeb;
-
+use master
+go
+alter database AnimeWeb set single_user with rollback immediate
+go
+Drop DATABASE if exists AnimeWeb;
+go
 CREATE DATABASE AnimeWeb;
 GO
 
