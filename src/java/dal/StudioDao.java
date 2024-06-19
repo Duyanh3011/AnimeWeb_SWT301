@@ -44,20 +44,56 @@ public class StudioDao extends DBContext {
 
         return null;
     }
-//	public void insert(Studio s){
-//        String sql = "INSERT INTO [User](id, password, email, fullname, admin)\n" + "VALUES (?, ?, ?, N'"+s.getFullname()+"', '0');";
-//
-//        try {
-//            PreparedStatement st = connection.prepareStatement(sql);
-//            st.setString(1, s.getId());
-//            st.setString(2, s.getPassword());
-//            st.setString(3, s.getEmail());
-//
-//            st.executeUpdate();
-//
-//        } catch (Exception e) {
-//        }
-//    }
+    public void insert(Studio s){
+        String sql = "INSERT INTO Studio (id, name) \n" +
+                    "VALUES(?,?)";
+
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, s.getId());
+            st.setString(2, s.getName());
+
+            st.executeUpdate();
+
+        } catch (Exception e) {
+        }
+    }
+    public void update(String id, String name) {
+        String sql = "UPDATE [Studio]\n"
+                + "SET [name] = ?\n"
+                + "WHERE id = ?;";
+
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(2, name);
+            st.setString(1, id);
+
+            st.executeUpdate();
+
+        } catch (Exception e) {
+        }
+    }
+
+    public String delete(String studioID) {
+        String sql = "Delete from [Studio]\n"
+                + "	where id =?";
+        String res = "";
+
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, studioID);
+            st.setString(2, studioID);
+
+            int rowaff = st.executeUpdate();
+            if( rowaff > 0)
+                res = res + "Delete successful";
+            else
+                res = res + "Delete unsuccessful";
+        } catch (Exception e) {
+            res = res + e.getMessage();
+        }
+        return res;
+    }
 
     public int mostStudio() {
         String sql = "SELECT top 1 s.id, s.name, COUNT(v.id) AS num_videos\n"

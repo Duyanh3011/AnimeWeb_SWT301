@@ -101,14 +101,14 @@ public class UserDAO extends DBContext {
         }
     }
 
-    public void update(String user, String npass) {
+    public void update(String userid, String npass) {
         String sql = "UPDATE [User]\n"
                 + "SET [password] = ?\n"
                 + "WHERE id = ?;";
 
         try {
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(2, user);
+            st.setString(2, userid);
             st.setString(1, npass);
 
             st.executeUpdate();
@@ -117,21 +117,27 @@ public class UserDAO extends DBContext {
         }
     }
 
-    public void delete(String user) {
+    public String delete(String user) {
         String sql = "Delete from Favorite\n"
                 + "	where [UserId] = ?\n"
                 + "	delete from [User]\n"
                 + "	where id =?";
+        String res = "";
 
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, user);
             st.setString(2, user);
 
-            st.executeUpdate();
-
+            int rowaff = st.executeUpdate();
+            if( rowaff > 0)
+                res = res + "Delete successful";
+            else
+                res = res + "Delete unsuccessful";
         } catch (Exception e) {
+            res = res + e.getMessage();
         }
+        return res;
     }
 
     public void updateInfo(String user, String name, String email) {
