@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import org.junit.Test;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -28,7 +27,8 @@ public class VideoDAOTest {
                 String[] row = line.split(",");
                 if (row[0].equals("Case 1")) {
                     boolean resultForDelete = videoDao.delete(row[1]);
-                    assertTrue(resultForDelete, "Deleted Successfully");
+                    boolean expected = Boolean.parseBoolean(row[2]);
+                    assertTrue(resultForDelete == expected, "Deleted Successfully");
                 }
             }
         } catch (IOException e) {
@@ -50,7 +50,8 @@ public class VideoDAOTest {
                 String[] row = line.split(",");
                 if (row[0].equals("Case 2")) {
                     boolean resultForDelete = videoDao.delete(row[1]);
-                    assertFalse(resultForDelete, "ID does not exist");
+                    boolean expected = Boolean.parseBoolean(row[2]);
+                    assertTrue(resultForDelete == expected, "Deleted Successfully");
                 }
             }
         } catch (IOException e) {
@@ -72,7 +73,8 @@ public class VideoDAOTest {
                 String[] row = line.split(",");
                 if (row[0].equals("Case 3")) {
                     boolean resultForDelete = videoDao.delete(row[1]);
-                    assertFalse(resultForDelete, "Input must be a number");
+                    boolean expected = Boolean.parseBoolean(row[2]);
+                    assertTrue(resultForDelete == expected, "Deleted Successfully");
                 }
             }
         } catch (IOException e) {
