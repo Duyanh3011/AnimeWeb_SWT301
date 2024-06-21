@@ -74,26 +74,26 @@ public class StudioDao extends DBContext {
         }
     }
 
-    public String delete(String studioID) {
-        String sql = "Delete from [Studio]\n"
-                + "	where id =?";
-        String res = "";
+        public String delete(String studioID) {
+            String sql = "Delete from [Studio]\n"
+                    + "	where id =?";
+            String res = "";
 
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1, studioID);
-            st.setString(2, studioID);
+            try {
+                PreparedStatement st = connection.prepareStatement(sql);
+                st.setString(1, studioID);
+                st.setString(2, studioID);
 
-            int rowaff = st.executeUpdate();
-            if( rowaff > 0)
-                res = res + "Delete successful";
-            else
-                res = res + "Delete unsuccessful";
-        } catch (Exception e) {
-            res = res + e.getMessage();
+                int rowaff = st.executeUpdate();
+                if( rowaff > 0)
+                    res = res + "Delete successful";
+                else
+                    res = res + "Delete unsuccessful";
+            } catch (Exception e) {
+                res = res + e.getMessage();
+            }
+            return res;
         }
-        return res;
-    }
 
     public int mostStudio() {
         String sql = "SELECT top 1 s.id, s.name, COUNT(v.id) AS num_videos\n"
