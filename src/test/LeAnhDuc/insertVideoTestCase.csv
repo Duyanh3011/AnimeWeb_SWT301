@@ -1,0 +1,5 @@
+Case 1,11,Shironeko Project ZERO CHRONICLE,https://cdn.myanimelist.net/images/anime/1072/111360l.jpg,800,The world is divided into two kingdom,https://www.youtube.com/embed/G4_ACGXNRBU?si=Ts1cKRh_Kju8clnU,2020,3,1,Insert successfully
+Case 2,1,Shironeko Project ZERO CHRONICLE,https://cdn.myanimelist.net/images/anime/1072/111360l.jpg,800,The world is divided into two kingdom,https://www.youtube.com/embed/G4_ACGXNRBU?si=Ts1cKRh_Kju8clnU,2020,3,1,SQL Exception
+Case 3,a,Shironeko Project ZERO CHRONICLE,https://cdn.myanimelist.net/images/anime/1072/111360l.jpg,800,The world is divided into two kingdom,https://www.youtube.com/embed/G4_ACGXNRBU?si=Ts1cKRh_Kju8clnU,2020,3,1,SQL Exception
+Case 4,11,Shironeko Project ZERO CHRONICLE,https://cdn.myanimelist.net/images/anime/1072/111360l.jpg,a,The world is divided into two kingdom,https://www.youtube.com/embed/G4_ACGXNRBU?si=Ts1cKRh_Kju8clnU,2020,3,1,Number format exception
+Case 5,,Shironeko Project ZERO CHRONICLE,https://cdn.myanimelist.net/images/anime/1072/111360l.jpg,800,The world is divided into two kingdom,https://www.youtube.com/embed/G4_ACGXNRBU?si=Ts1cKRh_Kju8clnU,2020,3,1,SQL Exception

@@ -228,13 +228,13 @@ public class VideoDAO extends DBContext {
             }
 
         } catch (SQLException e) {
-            System.out.println(e);
+
         }
         return null;
     }
 
 //CRUD
-    public void insert(Video s) {
+    public String insert(Video s) {
         String sql = "INSERT INTO Video (id,title, poster, views, description, link, year, GenreId, StudioId)\n"
                 + "VALUES"
                 + "(?,?,?,?,?,?,?,?,?)";
@@ -250,13 +250,19 @@ public class VideoDAO extends DBContext {
             st.setInt(8, s.getGenreId());
             st.setInt(9, s.getStudioId());
 
-            st.executeUpdate();
-
-        } catch (Exception e) {
+            int rowAffected = st.executeUpdate();
+            if (rowAffected > 0) {
+                return "Insert successfully";
+            }
+        } catch (SQLException e) {
+            return "SQL Exception";
+        } catch (NumberFormatException e) {
+            return "Number format exception";
         }
+        return "Insert failed";
     }
 
-    public void update(Video s) {
+    public String update(Video s) {
         String sql = "UPDATE Video\n"
                 + "SET title = ?,\n"
                 + "    poster = ? ,\n"
@@ -280,12 +286,19 @@ public class VideoDAO extends DBContext {
             st.setInt(7, s.getGenreId());
             st.setInt(8, s.getStudioId());
 
-            st.executeUpdate();
-        } catch (Exception e) {
+            int rowAffected = st.executeUpdate();
+            if (rowAffected > 0) {
+                return "Update successfully";
+            }
+        } catch (SQLException e) {
+            return "SQL Exception";
+        } catch (NumberFormatException e) {
+            return "Number format exception";
         }
+        return "Update failed";
     }
 
-    public boolean delete(String user) {
+    public String delete(String user) {
         String sql = "Delete from Favorite\n"
                 + "	where [videoId] = ?\n"
                 + "     Delete from Video\n"
@@ -296,12 +309,16 @@ public class VideoDAO extends DBContext {
             st.setString(1, user);
             st.setString(2, user);
 
-            int rowsAffected = st.executeUpdate();
-            return rowsAffected > 0;
-
-        } catch (Exception e) {
+            int rowAffected = st.executeUpdate();
+            if (rowAffected > 0) {
+                return "Delete successfully";
+            }
+        } catch (SQLException e) {
+            return "SQL Exception";
+        } catch (NullPointerException e) {
+            return "ID Null";
         }
-        return false;
+        return "Delete failed";
     }
 
 //	public List<Object[]> mostLikeVideo(){

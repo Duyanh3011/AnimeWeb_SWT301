@@ -1,0 +1,4 @@
+Case 1,10,Delete successfully,
+Case 2,11,Delete failed,
+Case 3,a,SQL Exception,
+Case 4,,Delete failed
