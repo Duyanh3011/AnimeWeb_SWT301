@@ -1,0 +1,4 @@
+Case 1,1,Video{id=1; title=One Punch Man; poster=https://cdn.myanimelist.net/images/anime/1802/124744l.jpg; views=1000; link=https://www.youtube.com/embed/UU-1oTJ3hQ4?si=1axINHqyEnylLFDF; year=2019; genreId=1; studioId=1},
+Case 2,112,Cannot find,
+Case 3,a,SQL Exception,
+Case 4,,Cannot find

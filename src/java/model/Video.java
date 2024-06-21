@@ -124,4 +124,20 @@ public class Video {
         this.studioId = studioId;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Video{");
+        sb.append("id=").append(id);
+        sb.append("; title=").append(title);
+        sb.append("; poster=").append(poster);
+        sb.append("; views=").append(views);
+        sb.append("; link=").append(link);
+        sb.append("; year=").append(year);
+        sb.append("; genreId=").append(genreId);
+        sb.append("; studioId=").append(studioId);
+        sb.append('}');
+        return sb.toString();
+    }
+
 }
