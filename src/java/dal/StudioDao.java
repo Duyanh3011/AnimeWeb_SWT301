@@ -82,7 +82,6 @@ public class StudioDao extends DBContext {
             try {
                 PreparedStatement st = connection.prepareStatement(sql);
                 st.setString(1, studioID);
-                st.setString(2, studioID);
 
                 int rowaff = st.executeUpdate();
                 if( rowaff > 0)
