@@ -77,28 +77,37 @@ public class UserDAO extends DBContext {
                     adm = false;
                 }
                 Users ad = new Users(rs.getString("id"), rs.getString("password"), rs.getString("email"), rs.getString("fullname"), adm);
+                System.out.println("User found");
                 return ad;
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
-
+        System.out.println("User not found");
         return null;
     }
 
-    public void insert(Users s) {
+    public int insert(Users s) {
         String sql = "INSERT INTO [User](id, password, email, fullname, admin)\n" + "VALUES (?, ?, ?, N'" + s.getFullname() + "', '0');";
 
+        int rowaff = 0;
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, s.getId());
             st.setString(2, s.getPassword());
             st.setString(3, s.getEmail());
 
-            st.executeUpdate();
+         rowaff = st.executeUpdate();
+
+            if(rowaff == 0)
+                System.out.println("Insert unsuccessful");
+            else
+                System.out.println("Insert successful");
 
         } catch (Exception e) {
+            rowaff = -1;
         }
+        return rowaff;
     }
 
     public void update(String userid, String npass) {
@@ -117,44 +126,49 @@ public class UserDAO extends DBContext {
         }
     }
 
-    public String delete(String user) {
+    public int delete(String userID) {
         String sql = "Delete from Favorite\n"
                 + "	where [UserId] = ?\n"
                 + "	delete from [User]\n"
                 + "	where id =?";
-        String res = "";
-
+        int rowaff = 0;
         try {
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1, user);
-            st.setString(2, user);
+            st.setString(1, userID);
+            st.setString(2, userID);
 
-            int rowaff = st.executeUpdate();
-            if( rowaff > 0)
-                res = res + "Delete successful";
-            else
-                res = res + "Delete unsuccessful";
+            rowaff = st.executeUpdate();
+        
+            if(rowaff == 0)
+                System.out.println("User not found or null");
         } catch (Exception e) {
-            res = res + e.getMessage();
+            rowaff = -1;
         }
-        return res;
+        return rowaff;
     }
 
-    public void updateInfo(String user, String name, String email) {
+    public int updateInfo(String user, String name, String email) {
         String sql = "UPDATE [User]\n"
                 + "SET fullname = ?, email = ?\n"
                 + "WHERE id = ?";
-
+        int rowaff = 0;
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, name);
             st.setString(2, email);
             st.setString(3, user);
 
-            st.executeUpdate();
+            rowaff = st.executeUpdate();
+
+            if(rowaff == 0)
+                System.out.println("Update unsuccessful");
+            else
+                System.out.println("Update successful");
 
         } catch (Exception e) {
+            rowaff = -1;
         }
+        return rowaff;
     }
 //	public Users getPassword(String email) {
 //		EntityManager em = JpaUtils.getEntityManager();

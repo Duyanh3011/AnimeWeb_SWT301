@@ -1,0 +1,4 @@
+Case 1,user1,Users{id=user1; password=123; email=user1@example.com; fullname=Minh Phong; admin=false}
+Case 2,f11,null
+Case 3,,null
+Case 4,null,null

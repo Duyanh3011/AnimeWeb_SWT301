@@ -1,3 +1,4 @@
-Case 1,5,Delete successful
-Case 2,11,User is not exist
-Case 3,a
+Case 1,user1,1
+Case 2,11a,0
+Case 3,,0
+Case 4,null,0

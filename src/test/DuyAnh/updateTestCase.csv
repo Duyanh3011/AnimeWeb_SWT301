@@ -1,0 +1,10 @@
+Case 1,user1,DuyAnh,anh@gmail.com,999aaa,False,1
+Case 2,user1,DuyAnh,anh,999aaa,False,0
+Case 3,user1,null,anh@gmail.com,999aaa,False,0
+Case 4,user1,DuyAnh,null,999aaa,False,0
+Case 5,user1,DuyAnh,anh@gmail.com,null,False,0
+Case 6,user1,DuyAnh,anh@gmail.com,999aaa,null,0
+Case 7,user1,,,false,0
+Case 8,null,DuyAnh,anh@gmail.com,999aaa,False,0
+Case 9,,DuyAnh,anh@gmail.com,999aaa,False,0
+
