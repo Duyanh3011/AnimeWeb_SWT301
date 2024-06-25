@@ -9,7 +9,7 @@ public class Favorites {
     private String userId;
     private String videoId;
 
-    public Favorites() {
+    public Favorites(int parseInt, String par, String par1) {
         super();
     }
 
@@ -44,8 +44,10 @@ public class Favorites {
 
     @Override
     public String toString() {
-        return "Favorites{" + "id=" + id + ", userId=" + userId + ", videoId=" + videoId + '}';
+        return "Favorites{" +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", videoId='" + videoId + '\'' +
+                '}';
     }
-    
-    
 }

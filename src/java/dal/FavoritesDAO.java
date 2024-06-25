@@ -130,7 +130,7 @@ public class FavoritesDAO extends DBContext {
     } catch (Exception e) {
     }
     }*/
-    public void delete(int favoriteId) {
+    public boolean delete(int favoriteId) {
     String sql = "DELETE FROM [dbo].[Favorite]\n"
             + "WHERE [id] = ?";
 
@@ -140,8 +140,23 @@ public class FavoritesDAO extends DBContext {
     } catch (Exception e) {
         System.out.println(e);
     }
+    return false;
 }
+    public boolean update(Favorites favorites) {
+        String sql = "UPDATE Favorite SET videoId = ?, UserId = ? WHERE id = ?";
 
+        try (PreparedStatement st = connection.prepareStatement(sql)) {
+            st.setString(1, favorites.getVideoId());
+            st.setString(2, favorites.getUserId());
+            st.setInt(3, favorites.getId());
+
+            int rowsUpdated = st.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return false;
+    }
     public static void main(String[] args) {
         FavoritesDAO fd= new FavoritesDAO();
 //        fd.delete(11);
