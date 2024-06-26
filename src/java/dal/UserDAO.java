@@ -106,6 +106,8 @@ public class UserDAO extends DBContext {
 
         } catch (Exception e) {
             rowaff = -1;
+            System.out.println(e);
+
         }
         return rowaff;
     }
@@ -167,6 +169,7 @@ public class UserDAO extends DBContext {
 
         } catch (Exception e) {
             rowaff = -1;
+            System.out.println(e);
         }
         return rowaff;
     }

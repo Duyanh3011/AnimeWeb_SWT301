@@ -1,0 +1,23 @@
+Case 1,user10,DuyAnh,anh@gmail.com,999aaa,False,1
+Case 2,null,DuyAnh,anh@gmail.com,999aaa,False,-1
+Case 3,,DuyAnh,anh@gmail.com,999aaa,False,0
+Case 4,Intheheartofabustlingmetropoliswhereskyscraperstouchtheheavensandneonlightspaintthenightskyamidstthecacophonyofurbanlifeandtherelentlesspulseofprogressth,DuyAnh,anh@gmail.com,999aaa,False,-1
+Case 5,user10,DuyAnh,anh,999aaa,False,0
+Case 6,user10,DuyAnh,null,999aaa,False,0
+Case 7,user10,DuyAnh,,999aaa,False,0
+Case 8,user10,DuyAnh,Intheheartofabustlingmetropoliswhereskyscraperstouchtheheavensandneonlightspaintthenightskyamidstthecacophonyofurbanlifeandtherelentlesspulseofprogressthereexistsaquietcornerwheretimeseemstostandstillandthewhispersofhistoryechothroughcobblestonestreetslinedwithancientoaksandweatheredfac,999aaa,False,-1
+
+Case 9,user10,null,anh@gmail.com,999aaa,False,0
+Case 10,user10,,anh@gmail.com,999aaa,False,0
+Case 11,user10,Intheheartofabustlingmetropoliswhereskyscraperstouchtheheavensandneonlightspaintthenightskyamidstthecacophonyofurbanlifeandtherelentlesspulseofprogressthereexistsaquietcornerwheretimeseemstostandstillandthewhispersofhistoryechothroughcobblestonestreetslinedwithancientoaksandweatheredfac,anh@gmail.com,999aaa,False,-1
+
+Case 12,user10,DuyAnh,anh@gmail.com,null,False,0
+Case 13,user10,DuyAnh,anh@gmail.com,,False,0
+Case 14,user10,DuyAnh,anh@gmail.com,Intheheartofabustlingmetropoliswhereskyscraperstouchtheheavensandneonlightspaintthenightskyamidstthecacophonyofurbanlifeandtherelentlesspulseofprogressthereexistsaquietcornerwheretimeseemstostandstillandthewhispersofhistoryechothroughcobblestonestreetslinedwithancientoaksandweatheredfac,False,-1
+
+Case 15,user10,DuyAnh,anh@gmail.com,999aaa,null,0
+Case 16,user1,DuyAnh,anh@gmail.com,999aaa,False,-1
+
+
+
+
