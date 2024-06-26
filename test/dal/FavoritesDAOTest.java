@@ -7,6 +7,7 @@ package dal;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import model.Favorites;
 import model.Video;
@@ -31,7 +32,7 @@ public class FavoritesDAOTest {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] row = line.split(",");
-                if (row[0].equals("Case 1")) {
+                if (row[0].equals("Case 3")) {
                     Favorites favorites = new Favorites(Integer.parseInt(row[1]), row[2], row[3]);
                     boolean result = favoritesDao.update(favorites);
                     boolean expected = Boolean.parseBoolean(row[4]);
@@ -51,7 +52,7 @@ public class FavoritesDAOTest {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] row = line.split(",");
-                if (row[0].equals("Case 3")) {
+                if (row[0].equals("Case 1")) {
                     List<Video> videos = favoritesDao.findByUser(row[1]);
                     assertEquals(Integer.parseInt(row[2]), videos.size());
                 }
@@ -62,17 +63,17 @@ public class FavoritesDAOTest {
     }
 
     @Test
-    public void testInsert() throws IOException {
+    public void testInsert() throws IOException, SQLException {
         var favoritesDao = new FavoritesDAO();
         String file = "src\\test\\BuiTuanMinh\\insertTestCase.csv";
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] row = line.split(",");
-                if (row[0].equals("Case 2")) {
+                if (row[0].equals("Case 3")) {
                     Favorites favorites = new Favorites(row[1], row[2]);
                     favoritesDao.insert(favorites);
-                    // Optionally, assert the result if needed
+                    
                 }
             }
         } catch (IOException e) {

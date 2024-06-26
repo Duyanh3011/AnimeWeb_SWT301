@@ -102,7 +102,7 @@ public class FavoritesDAO extends DBContext {
     } catch (Exception e) {
     }
     }*/
-    public void insert(Favorites s) {
+    public void insert(Favorites s)throws SQLException {
     String sql = "INSERT INTO Favorite (videoId, UserId) \n"
             + "VALUES \n"
             + "(?, ?)";
@@ -162,7 +162,7 @@ public class FavoritesDAO extends DBContext {
 //        fd.delete(11);
         Favorites f = new Favorites("user1", "2");
         System.out.println(f);
-        fd.insert(f);
+       
         System.out.println(fd.findByUserAndVideo("user1", "1"));
         System.out.println(fd.findByUser("user1").get(0).getTitle());
     }
