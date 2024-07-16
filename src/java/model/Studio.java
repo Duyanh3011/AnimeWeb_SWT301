@@ -31,4 +31,11 @@ public class Studio {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Studio{" + "id=" + id + ", name=" + name + '}';
+    }
+    
+    
 }

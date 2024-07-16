@@ -72,7 +72,7 @@
                         <h3>Update Anime</h3>
                         <form id="form" action="update" method="post">
                             <div class="input__item " style="width: 100%">
-                                <input type="text" placeholder="Anime ID" name="id" required="" value="${v.id}" >
+                                <input type="text" placeholder="Anime ID" name="id" readonly="" value="${v.id}" >
                                 <span class="icon_profile"></span>
                             </div>
                             <div class="input__item" style="width: 100%">
