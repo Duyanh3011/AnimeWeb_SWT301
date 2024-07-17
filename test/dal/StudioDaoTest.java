@@ -3,6 +3,7 @@ package dal;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import model.Studio;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,6 +20,10 @@ public class StudioDaoTest {
 
     @Test
     public void testGetAll() {
+        StudioDao st = new StudioDao();
+        for (Studio s : st.getAll()) {
+            System.out.println(s.toString());
+        }
     }
 
     @Test

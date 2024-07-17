@@ -16,7 +16,7 @@ public class StudioDao extends DBContext {
         //chay lenhj truy van
         try (PreparedStatement st = connection.prepareStatement(sql);) {
             try (ResultSet rs = st.executeQuery()) {
-                if (rs.next()) {
+                while (rs.next()) {
                     Studio ad = new Studio(rs.getInt("id"), rs.getString("name"));
                     list.add(ad);
                 }
