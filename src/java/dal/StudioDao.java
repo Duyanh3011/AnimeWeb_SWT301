@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Studio;
 
+
 public class StudioDao extends DBContext {
 
     public List<Studio> getAll() {
