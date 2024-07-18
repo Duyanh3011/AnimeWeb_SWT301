@@ -59,16 +59,18 @@ public class AddServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        VideoDAO vd = new VideoDAO();
         GenreDao ge = new GenreDao();
         StudioDao sd = new StudioDao();
+        String idg = request.getParameter("idg");
+        String ids = request.getParameter("ids");
 
         try {
             List<Genre> genre = ge.getAll();
             request.setAttribute("genre", genre);
             List<Studio> studio = sd.getAll();
             request.setAttribute("studio", studio);
-
+            request.setAttribute("seleGenID", idg);
+            request.setAttribute("seleStuID", ids);
 //                request.getRequestDispatcher("test.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,7 +95,7 @@ public class AddServlet extends HttpServlet {
         String title = request.getParameter("title");
         String poster = request.getParameter("poster");
         String Rviews = request.getParameter("views");
-        String description = request.getParameter("description");
+        String description = request.getParameter("desc");
         String link = request.getParameter("link");
         String Ryear = request.getParameter("year");
         String RseleGenre = request.getParameter("seleGenre");
@@ -110,10 +112,18 @@ public class AddServlet extends HttpServlet {
             vd.insert(v);
 
             request.setAttribute("v", v);
-            request.setAttribute("mes", "Added successful!!!");
+            request.setAttribute("mes", "Added successfully!");
         } catch (NumberFormatException e) {
-            request.setAttribute("mes", "Added failed!!!");
+            request.setAttribute("mes", "Your input must be a valid number");
+        } catch (Exception e) {
+            request.setAttribute("mes", "Falied to add a new video");
         }
+        GenreDao ge = new GenreDao();
+        StudioDao sd = new StudioDao();
+        List<Genre> genre = ge.getAll();
+        request.setAttribute("genre", genre);
+        List<Studio> studio = sd.getAll();
+        request.setAttribute("studio", studio);
         request.getRequestDispatcher("admin/add.jsp").forward(request, response);
     }
 
