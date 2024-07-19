@@ -83,9 +83,9 @@
                                 <input type="password" placeholder="Confirm Password" name="Cpass" required="">
                                 <span class="icon_lock"></span>
                             </div>
-                            <h2 style="color: red">${requestScope.err}</h2>
-                            <h2 style="color: red">${requestScope.err1}</h2>
-                            <h2 style="color: green">${requestScope.mes}</h2>
+                            <h2 id="fail1" style="color: red">${requestScope.err}</h2>
+                            <h2 id="fail2" style="color: red">${requestScope.err1}</h2>
+                            <h2 id="done" style="color: green">${requestScope.mes}</h2>
 
                         <button type="submit" class="site-btn">Change password</button>
                     </form>
