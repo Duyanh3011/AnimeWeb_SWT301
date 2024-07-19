@@ -126,18 +126,9 @@ public class Video {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Video{");
-        sb.append("id=").append(id);
-        sb.append("; title=").append(title);
-        sb.append("; poster=").append(poster);
-        sb.append("; views=").append(views);
-        sb.append("; link=").append(link);
-        sb.append("; year=").append(year);
-        sb.append("; genreId=").append(genreId);
-        sb.append("; studioId=").append(studioId);
-        sb.append('}');
-        return sb.toString();
+        return "Video{" + "id=" + id + "; title=" + title + "; poster=" + poster + "; views=" + views + "; description=" + description + "; link=" + link + "; year=" + year + "; genreId=" + genreId + "; studioId=" + studioId + '}';
     }
+
+  
 
 }
