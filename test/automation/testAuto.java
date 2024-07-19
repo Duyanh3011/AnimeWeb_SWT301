@@ -23,35 +23,26 @@ public class testAuto {
     public String runningAddPage(String id, String title, String poster, String views, String desc, String link, String year, String url) throws InterruptedException {
         driver.navigate().to(url);
         actions.scrollByAmount(0, 450).build().perform();
-        Thread.sleep(200);
         WebElement videoID = driver.findElement(By.name("id"));
         videoID.sendKeys(id);
-        Thread.sleep(200);
         WebElement videoTitle = driver.findElement(By.name("title"));
         videoTitle.sendKeys(title);
-        Thread.sleep(200);
         WebElement videoPoster = driver.findElement(By.name("poster"));
         videoPoster.sendKeys(poster);
-        Thread.sleep(200);
         WebElement videoView = driver.findElement(By.name("views"));
         videoView.sendKeys(views);
-        Thread.sleep(200);
         WebElement videoDescription = driver.findElement(By.name("desc"));
         videoDescription.click();
         videoDescription.sendKeys(desc);
-        Thread.sleep(200);
         WebElement videoLink = driver.findElement(By.name("link"));
         videoLink.sendKeys(link);
-        Thread.sleep(200);
         WebElement videoYear = driver.findElement(By.name("year"));
         videoYear.sendKeys(year);
-        Thread.sleep(200);
         WebElement button = driver.findElement(By.className("site-btn"));
         button.click();
         actions.scrollByAmount(0, 450).build().perform();
         WebElement actualResult = driver.findElement(By.id("result"));
         String result = actualResult.getText();
-        Thread.sleep(1000);
         driver.quit();
         return result;
     }
