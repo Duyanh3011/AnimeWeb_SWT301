@@ -20,6 +20,7 @@ public class autoSignUp {
     String line, expected = "", actual = "";
 
     public String runningSignUpPage(String accountId, String email, String name, String password, String confirmPassword, String url) throws InterruptedException {
+        String result;
         driver.navigate().to(url);
         actions.scrollByAmount(0, 450).build().perform();
         Thread.sleep(200);
@@ -41,8 +42,12 @@ public class autoSignUp {
         WebElement button = driver.findElement(By.className("site-btn"));
         button.click();
         actions.scrollByAmount(0, 450).build().perform();
-        WebElement actualResult = driver.findElement(By.id("result")); // Adjust if necessary
-        String result = actualResult.getText();
+        if (driver.getCurrentUrl().equals("http://localhost:8080/AnimeWeb_HE181309_SWT/login")) {
+            result = driver.getTitle();
+        } else {
+            WebElement actualResult = driver.findElement(By.id("result")); // Adjust if necessary  
+            result = actualResult.getText();
+        }
         Thread.sleep(1000);
         driver.quit();
         return result;
@@ -62,6 +67,7 @@ public class autoSignUp {
             e.printStackTrace();
         } finally {
             reader.close();
+            driver.quit();
             assertEquals(expected, actual);
         }
     }
@@ -135,6 +141,7 @@ public class autoSignUp {
     public void testSignUpUserLongEmail() throws InterruptedException, IOException {
         SignUpUserTest("SignUp-14");
     }
+
     @Test
     public void testSignUpUserExistedAcc() throws InterruptedException, IOException {
         SignUpUserTest("SignUp-15");
