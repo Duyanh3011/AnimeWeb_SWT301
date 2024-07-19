@@ -32,6 +32,8 @@ public class testChangePass {
         WebElement errorMessage = driver.findElement(By.id("done")); 
         assertEquals("Change password successful!!!", errorMessage.getText());
         revertPassword("1234", "123");
+        String currentUrl = driver.getCurrentUrl();
+        assertEquals("http://localhost:9999/AnimeWeb_HE181309_SWT/password", currentUrl);
     }
 
     @Test
@@ -40,6 +42,8 @@ public class testChangePass {
         WebElement errorMessage = driver.findElement(By.id("done")); 
         assertEquals("Change password successful!!!", errorMessage.getText());
         revertPassword("123", "123");
+         String currentUrl = driver.getCurrentUrl();
+        assertEquals("http://localhost:9999/AnimeWeb_HE181309_SWT/password", currentUrl);
     }
 
     @Test
@@ -48,6 +52,8 @@ public class testChangePass {
         WebElement errorMessage = driver.findElement(By.id("done")); 
         assertEquals("Change password successful!!!", errorMessage.getText());
         revertPassword("a", "123");
+         String currentUrl = driver.getCurrentUrl();
+        assertEquals("http://localhost:9999/AnimeWeb_HE181309_SWT/password", currentUrl);
     }
 
     @Test
@@ -57,6 +63,8 @@ public class testChangePass {
         WebElement errorMessage = driver.findElement(By.id("done")); 
         assertEquals("Change password successful!!!", errorMessage.getText());
         revertPassword(longPassword, "123");
+         String currentUrl = driver.getCurrentUrl();
+        assertEquals("http://localhost:9999/AnimeWeb_HE181309_SWT/password", currentUrl);
     }
 
     @Test
@@ -65,6 +73,8 @@ public class testChangePass {
         WebElement errorMessage = driver.findElement(By.id("done")); 
         assertEquals("Change password successful!!!", errorMessage.getText());
         revertPassword("Passw0rd!@#", "123");
+         String currentUrl = driver.getCurrentUrl();
+        assertEquals("http://localhost:9999/AnimeWeb_HE181309_SWT/password", currentUrl);
     }
 
     @Test
@@ -104,6 +114,8 @@ public class testChangePass {
         changePassword("132", "1234", "1234");
         WebElement errorMessage = driver.findElement(By.id("fail1")); 
         assertEquals("Password is incorrect", errorMessage.getText());
+         String currentUrl = driver.getCurrentUrl();
+        assertEquals("http://localhost:9999/AnimeWeb_HE181309_SWT/password", currentUrl);
     }
     
         @Test
@@ -111,6 +123,8 @@ public class testChangePass {
         changePassword("123", "1243", "1234");
         WebElement errorMessage = driver.findElement(By.id("fail2")); 
         assertEquals("Password is not matching", errorMessage.getText());
+         String currentUrl = driver.getCurrentUrl();
+        assertEquals("http://localhost:9999/AnimeWeb_HE181309_SWT/password", currentUrl);
     }
     
         @Test
@@ -118,6 +132,8 @@ public class testChangePass {
         changePassword("123", "1234", "1243");
         WebElement errorMessage = driver.findElement(By.id("fail2")); 
         assertEquals("Password is not matching", errorMessage.getText());
+         String currentUrl = driver.getCurrentUrl();
+        assertEquals("http://localhost:9999/AnimeWeb_HE181309_SWT/password", currentUrl);
     }
 
     @After
