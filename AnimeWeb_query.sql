@@ -105,7 +105,8 @@ VALUES
 (7,'Reborn to Master the Blade: From Hero-King to Extraordinary Squire', 'https://cdn.myanimelist.net/images/anime/1044/129594l.jpg', 1500, 'The hero-king Inglis—who dedicated his entire life to building his country—is now approaching death. To award him for his honorable achievements, the goddess Alistia appears and grants him one wish. Having never been able to master the blade, Inglis asks to be reincarnated in order to do so.', 'https://www.youtube.com/embed/eIs9FJuethQ?si=RQV6LwptOnOM3_Wd', 2021, 5,1),
 (8,'The Babysitters in the School', 'https://cdn.myanimelist.net/images/anime/8/89978l.jpg', 800, 'After losing both parents in a fatal plane crash, teenager Ryuuichi Kashima must adjust to his new life as the guardian of his younger brother Kotarou. Although Ryuuichi is able to maintain a friendly and kindhearted demeanor, Kotarou is a reserved toddler still too young to understand the reality of the situation. At their parents funeral, they are approached by Youko Morinomiya, the stern chairman of an elite academy, who decides to take them under her care.', 'https://www.youtube.com/embed/7vBvvYzTNGw?si=KOU0zrneZxoC2HQd', 2018, 4,2),
 (9,'Wandering Witch: The Journey of Elaina', 'https://cdn.myanimelist.net/images/anime/1802/108501l.jpg', 1200, 'Since childhood, Elaina has always been fascinated by the stories written within her favorite book, especially those about Nike, a renowned witch who had numerous great travels across the world. Wanting to experience the awe of adventure herself, Elaina strives to become a witch, and despite the numerous trials that come her way, she eventually succeeds.', 'https://www.youtube.com/embed/FdWFB2oVXkg?si=GSRcfsbtT2ODjbqC', 2020, 2,3),
-(10,'Shironeko Project ZERO CHRONICLE', 'https://cdn.myanimelist.net/images/anime/1072/111360l.jpg', 800, 'The world is divided into two kingdoms: the Kingdom of White, which floats in the heavens and is ruled by their queen Iris, and the Kingdom of Black, which stands upon desolate land below and houses the King of Darkness as its ruler. As of late, forces of evil have amassed great power, posing a threat to the entire world. Being the main representative of the Light, it is Iris duty to maintain the balance of the world and fight off the darkness in her kingdom.', 'https://www.youtube.com/embed/G4_ACGXNRBU?si=Ts1cKRh_Kju8clnU', 2020, 3,1);
+(10,'Shironeko Project ZERO CHRONICLE', 'https://cdn.myanimelist.net/images/anime/1072/111360l.jpg', 800, 'The world is divided into two kingdoms: the Kingdom of White, which floats in the heavens and is ruled by their queen Iris, and the Kingdom of Black, which stands upon desolate land below and houses the King of Darkness as its ruler. As of late, forces of evil have amassed great power, posing a threat to the entire world. Being the main representative of the Light, it is Iris duty to maintain the balance of the world and fight off the darkness in her kingdom.', 'https://www.youtube.com/embed/G4_ACGXNRBU?si=Ts1cKRh_Kju8clnU', 2020, 3,1),
+(12,'Shironeko Project ZERO CHRONICLE', 'https://cdn.myanimelist.net/images/anime/1072/111360l.jpg', 800, 'The world is divided into two kingdoms', 'https://www.youtube.com/embed/G4_ACGXNRBU?si=Ts1cKRh_Kju8clnU', 2020, 3,1);
 
 INSERT INTO Favorite (videoId, UserId) 
 VALUES 
@@ -126,11 +127,12 @@ GO
 ----Genre
 --	select * from Genre where id= 1
 ----Studio
---	select * from Studio where id= 1
+	--select * from Studio 
+	--where id= 1
 --	delete from Studio
 
 ----Video
---	select * from Video
+	select * from Video
 --	where  GenreId = 1;
 
 --	--video year
