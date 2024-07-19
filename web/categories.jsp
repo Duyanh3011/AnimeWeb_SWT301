@@ -84,7 +84,7 @@
                                     <c:set var="seleStuID" value="${requestScope.seleStudio}"></c:set>
                                         <form action="categories" method="POST">
                                             <p style="display: inline"> Genre:</p>
-                                            <select name="seleGenre" style="display: inline">
+                                            <select id="g" name="seleGenre" style="display: inline">
                                                 <option value="0">All</option>
                                                 <c:forEach items="${requestScope.genre}" var="g">
                                                     <option value="${g.id}" ${g.id == seleGenID ? 'selected' : ''}>${g.name}</option>
@@ -217,7 +217,7 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/player.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
+<!--<script src="js/jquery.nice-select.min.js"></script>-->
 <script src="js/mixitup.min.js"></script>
 <script src="js/jquery.slicknav.js"></script>
 <script src="js/owl.carousel.min.js"></script>

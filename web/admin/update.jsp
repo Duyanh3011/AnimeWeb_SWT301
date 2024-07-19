@@ -89,7 +89,7 @@
                                 <span class="icon_datareport"></span>
                             </div>
                             <div class="input__item" style="width: 100%">
-                                <input type="text" placeholder="Description" name="description" required="" value="${v.description}">
+                                <input type="text" id="desc" placeholder="Description" name="description" required="" value="${v.description}">
                                 <span class="icon_book"></span>
                             </div>
                             <div class="input__item" style="width: 100%">
@@ -101,7 +101,8 @@
                                 <span class="icon_calendar"></span>
                             </div>
                            
-                                <select  name="seleGenre" >
+                                <select 
+                                        name="seleGenre" >
                                     <option value="0">All</option>
                                     <c:forEach items="${requestScope.genre}" var="g">
                                         <option value="${g.id}" ${g.id == v.genreId ? 'selected' : ''}>${g.name}</option>
@@ -112,7 +113,7 @@
                                     <c:forEach items="${requestScope.studio}" var="g">
                                         <c:choose>
                                             <c:when test="${g.id == v.studioId}">
-                                                <option value="${g.id}" selected="">${g.name}</option>
+                                                <option value="${g.id}" selected="selected">${g.name}</option>
                                             </c:when>
                                             <c:otherwise>
                                                 <option value="${g.id}" >${g.name}</option>
@@ -146,7 +147,7 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/player.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
+<!--    <script src="js/jquery.nice-select.min.js"></script>-->
     <script src="js/mixitup.min.js"></script>
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
